@@ -1,0 +1,84 @@
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <meta charset="utf-8">
+      <title>List of movies</title>
+      <link href="/style.css" rel="stylesheet" type="text/css">
+      <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" />﻿
+    </head>
+    <body>
+     <h1 class ="title">Movie database</h1>
+     <div id="homepage">
+       <h1>A list of your favorite movies!</h1>
+       <div id="movies"> </div>
+     </div>
+     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+     <script src="https://unpkg.com/react@15/dist/react.js"></script>
+     <script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>﻿
+
+     <!-- Create react Component -->
+
+     <script type = "text/babel">
+      var Movies = React.createClass({
+        getInitialState: function(){
+          return({
+            movies: []
+          });
+          console.log("Rendered empty!");
+        },
+        handleClick: function(e){
+            console.log("Stan");
+        },
+        render: function(){
+          var movies = this.state.movies;
+          movies = movies.map(function(movie, index){
+            return(
+            <li key={index}>
+              <span className="header">Name</span><span className="header">Year</span><br/><br/>
+              <span className="name">{movie.name}     </span>
+              <span className="year">{movie.year}     </span>
+              <button id="deleteBtn" onClick={this.handleClick}>X</button>
+            </li>
+          );
+        },
+        handleClick: function(e){
+        e.preventDefault();
+        console.log('this is:' + this);
+        }
+      )}
+
+          return(
+            <div id="movie-container">
+              <form id="input" onSubmit={this.handleSubmit}>
+                <label>Name:</label>
+                <input type="text" ref="name" placeholder="Name goes here" required />
+                <label>Year:</label>
+                <input type="text" ref="year" placeholder="Year goes here" required />
+                <input type="submit" value="Add movie!"/>
+                <ul></ul>
+              </form>
+            </div>
+          );
+        },
+        handleSubmit: function(e){
+          e.preventDefault();
+          var name = this.refs.name.value;
+          var year = this.refs.year.value;
+          console.log(name);
+          fetch("/api/movies",
+          {
+          method: "POST",
+          headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json',
+            },
+              body: JSON.stringify({name,year})
+          }).then(function(res){
+             return res.json();
+          });
+        }
+      });
+      ReactDOM.render(<Movies/>, document.getElementById("movies"));
+     </script>
+    </body>
+  </html>

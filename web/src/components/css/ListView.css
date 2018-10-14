@@ -1,0 +1,87 @@
+.ListView {
+  text-align: center;
+}
+
+#listContainer{
+    width: 60%;
+    height: 70%;
+    position: absolute;
+    left: 20%;
+    border: solid 1px black;
+    top: 15%;
+    overflow-y: scroll;
+}
+
+#movieContainer{
+  margin-top: 20px;
+}
+
+.logoutBtn{
+  margin-left: 50px;
+}
+
+p{
+  text-align: center;
+  display: inline-block;
+  padding: 0px;
+  padding-bottom: 0px;
+  padding-top: 0px;
+}
+
+h2{
+  display: inline-block;
+  padding: 200px;
+  padding-bottom: 0px;
+  padding-top: 0px;
+}
+
+li{
+  border: solid black 1px;
+  padding: 10px;
+  margin: 20px;
+  list-style-type:none;
+}
+
+.name{
+  width: 50px;
+  display: inline-block;
+  text-align: left;
+  padding-right: 190px;
+}
+
+.year{
+  width: 50px;
+  display: inline-block;
+  text-align: left;
+  padding-left: 100px;
+  padding-right: 50px;
+}
+
+.deleteBtn{
+  color:red;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}

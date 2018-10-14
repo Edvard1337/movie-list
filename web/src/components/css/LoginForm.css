@@ -1,0 +1,15 @@
+.RegisterForm{
+  position: absolute;
+  left: 20%;
+}
+
+ input{
+   display: block;
+   margin: 10px;
+ }
+
+.LoginForm{
+  position: absolute;
+  left: 30%;
+  margin-left: 100px;
+}
